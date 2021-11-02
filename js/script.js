@@ -1,6 +1,10 @@
 'use strict';
+
+const optArticleSelector = '.post';
+const optTitleSelector = '.post-title';
+const optTitleListSelector = '.titles';
   
-function titleClickHandler(event){
+const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
 
@@ -26,11 +30,7 @@ function titleClickHandler(event){
 
 }
 
-const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-
-function generateTitleLinks(){
+const generateTitleLinks = function(){
 
     const titleList = document.querySelector(optTitleListSelector);
     function clearTitleList(){
