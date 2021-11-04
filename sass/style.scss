@@ -4,6 +4,7 @@
 
 $color-light: #fff;
 $color-dark: #444;
+$color-main: #f5a111;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -16,9 +17,9 @@ $font-text: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  background: $color-light;
+  background: $color-dark;
   font-family: $font-text;
-  color: $color-dark;
+  color: $color-light;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -27,6 +28,10 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
+
+  .logo {
+    color: $color-main;
+  }
 }
 
 .section-title {
@@ -46,6 +51,7 @@ body {
 .wrapper {
   display: flex;
   margin-left: 10px;
+  min-height: 900px;
 }
 
 .sidebar {
@@ -58,9 +64,10 @@ body {
 
 .sidebar, .posts {
   background: $color-light;
+  color: $color-dark;
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid $color-dark;
+  border: 3px solid $color-main;
   border-radius: 5px;
 }
 
@@ -102,9 +109,16 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  z-index: 1;
+  position: absolute;
+  max-width: 300px;
+  max-height: 500px;
+  opacity: 0;
+  transition: 0.5s;
   &.active {
-    display: block;
+    z-index: 5;
+    opacity: 1;
+    transition: 0.5s;
   }
 }
 
@@ -116,5 +130,14 @@ body {
   display: flex;
   p {
     margin: 0 10px 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    flex-direction: column;
+    text-align: center;
+    min-height: 900px;
+    min-width: 350px;
   }
 }
