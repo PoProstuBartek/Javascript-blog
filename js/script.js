@@ -135,7 +135,7 @@ function generateAuthors() {
 
   for(let article of articles){
 
-    const author =  document.querySelector(optArticleAuthorSelector);
+    const author =  article.querySelector(optArticleAuthorSelector);
 
     const authorName = article.getAttribute('data-author');
 
@@ -168,10 +168,10 @@ function authorClickHandler(event){
     activeAuthor.classList.remove('active');
   }
 
-  const tagLinks = document.querySelectorAll('a.[href="' + href + '"]');
+  const clickedAuthors = document.querySelectorAll('a.active[href^="#author-"]');
 
-  for(let tag of tagLinks){
-    tag.classList.add('active');
+  for(let clickedAuthor of clickedAuthors){
+    clickedAuthor.classList.add('active');
   }
 
   generateTitleLinks('[data-author="' + author + '"]');
