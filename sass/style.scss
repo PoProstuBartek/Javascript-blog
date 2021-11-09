@@ -5,6 +5,12 @@
 $color-light: #fff;
 $color-dark: #444;
 $color-main: #f5a111;
+$color-tag-1: #660101;
+$color-tag-2: #1186f4;
+$color-tag-3: #0c9e6d;
+$color-tag-4: #291d5e;
+$color-tag-5: #8e11f4;
+
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -136,6 +142,45 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+/* Tags Cloud */
+
+.tags li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.tag-size-5 {
+  font-size: 35px;
+  color: $color-tag-5;
+}
+
+.tag-size-4 {
+  font-size: 30px;
+  color: $color-tag-4;
+}
+
+.tag-size-3 {
+  font-size: 25px;
+  color: $color-tag-3;
+}
+
+.tag-size-2 {
+  font-size: 20px;
+  color: $color-tag-2;
+}
+
+.tag-size-1 {
+  font-size: 15px;
+  color: $color-tag-1;
+}
+
+.list {
+  list-style-type: none;
+    a {
+      text-decoration: none;
+    }
 }
 
 @media (max-width: 767px) {
