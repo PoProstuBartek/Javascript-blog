@@ -144,7 +144,6 @@ const generateTags = function(){
   const allTagsData = {tags: []};
 
   for(let tag in allTags){
-    // const tagLinkHtml = '<li><a class="' + calculateMinMaxParams(allTags[tag], tagsParams) + ' " href="#tag-' + tag + '">' + tag + '</a></li>';
     allTagsData.tags.push({
       tag: tag,
       count: allTags[tag],
@@ -209,7 +208,7 @@ const generateAuthors = function() {
     let html = '';
 
     const linkHTMLData = {id: authorName, title: authorName};
-    const linkHTML = templates.authorLink(linkHTMLData); //'<a href="#author-' + authorName + '">' + authorName + '</a>';
+    const linkHTML = templates.authorLink(linkHTMLData);
 
     html = html + linkHTML;
 
@@ -228,14 +227,12 @@ const generateAuthors = function() {
   const allAuthorsData = {authors: []};
 
   for(let authorName in allAuthors){
-    //const authorLinkHtml = '<li><a class = "' + calculateMinMaxParams(allAuthors[authorName], authorsParams) + '" href="#author-' + authorName + '"> ' + authorName + ' (' + allAuthors[authorName] + ') ' +'</a></li>';
     allAuthorsData.authors.push({
       authorName: authorName,
       count: allAuthors[authorName],
       className: calculateMinMaxParams(allAuthors[authorName], authorsParams)
     });
   }
-  console.log(allAuthorsData);
   authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
 };
 
