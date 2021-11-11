@@ -75,19 +75,20 @@ const generateTitleLinks = function(customSelector = ''){
 
 generateTitleLinks();
 
-const calculateTagsParams  = function(tags){
+const calculateCollectionParams = function(items){
 
   const params = {max: 0, min: 999999};  
 
-  for(let tag in tags){
-    params.max = Math.max(tags[tag], params.max);
-    params.min = Math.min(tags[tag], params.min);
+  for(let tag in items){
+    params.max = Math.max(items[tag], params.max);
+    params.min = Math.min(items[tag], params.min);
   }
 
-  return params; 
+  return params;
+
 };
 
-const calculateTagClass = function(count, params){
+const calculateMinMaxParams = function(count, params){
 
   const normalizedCount = count - params.min;
   const normalizedMax = params.max - params.min;
@@ -129,11 +130,11 @@ const generateTags = function(){
     articleList.innerHTML = html;
   }
   const tagList = document.querySelector(opt.tagsListSelector);
-  const tagsParams = calculateTagsParams(allTags);
+  const tagsParams = calculateCollectionParams(allTags);
   let allTagsHtml = '';
 
   for(let tag in allTags){
-    const tagLinkHtml = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + ' " href="#tag-' + tag + '">' + tag + '</a></li>';
+    const tagLinkHtml = '<li><a class="' + calculateMinMaxParams(allTags[tag], tagsParams) + ' " href="#tag-' + tag + '">' + tag + '</a></li>';
     allTagsHtml += tagLinkHtml;
   }
   
@@ -180,31 +181,6 @@ const addClickListenersToTags = function(){
 
 addClickListenersToTags();
 
-const calculateAuthorsParams = function(authors){
-
-  const params = {max: 0, min: 999999};  
-
-  for(let tag in authors){
-    params.max = Math.max(authors[tag], params.max);
-    params.min = Math.min(authors[tag], params.min);
-  }
-
-  return params;
-
-};
-
-const calculateAuthorClass = function(count, params){
-
-  const normalizedCount = count - params.min;
-  const normalizedMax = params.max - params.min;
-  const percentage = normalizedCount / normalizedMax;
-
-  const classNumber = Math.floor(percentage * (opt.authorClassCount - 1) + 1);
-
-  return opt.authorClassPrefix + classNumber;
-};
-
-
 const generateAuthors = function() {
 
   let allAuthors = {};
@@ -233,12 +209,12 @@ const generateAuthors = function() {
   }
   const authorList = document.querySelector(opt.authorsListSelector);
 
-  const authorsParams = calculateAuthorsParams(allAuthors);
+  const authorsParams = calculateCollectionParams(allAuthors);
 
   let allAuthorsHtml = '';
 
   for(let authorName in allAuthors){
-    const authorLinkHtml = '<li><a class = "' + calculateAuthorClass(allAuthors[authorName], authorsParams) + '" href="#author-' + authorName + '"> ' + authorName + '</a></li>';
+    const authorLinkHtml = '<li><a class = "' + calculateMinMaxParams(allAuthors[authorName], authorsParams) + '" href="#author-' + authorName + '"> ' + authorName + ' (' + allAuthors[authorName] + ') ' +'</a></li>';
     allAuthorsHtml += authorLinkHtml;
   }
   authorList.innerHTML = allAuthorsHtml;
