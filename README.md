@@ -1,5 +1,7 @@
 # Meet your Heroes!
 
+## Open at: https://meet-your-heroes.netlify.app/
+
 ## General info
 Single page application inspired by Heroes of the Storm game by Blizzard Entertainment. Dynamically generated short descriptions of few Heroes from the game. Every Hero has it's own role and origin. You can filter Heores by their role in the game, or by the origin witch are displayed on the right menu.
 
