@@ -1,7 +1,7 @@
-# Blog
+# Meet your Heroes!
 
 ## General info
-Simple blog site.
+Single page application inspired by Heroes of the Storm game by Blizzard Entertainment. Dynamically generated short descriptions of few Heroes from the game. Every Hero has it's own role and origin. You can filter Heores by their role in the game, or by the origin witch are displayed on the right menu.
 
 ## Technologies
 
@@ -11,8 +11,6 @@ Project is created with:
 * SCSS
 * JavaScript
 
-In this project i've leared how to write a simple singe page application. Articles are generated dynamically, after cliking on them on left nav menu. Every article has it's own tags and author and we can filter the list of article by this two things.
-
 ## Setup
 
 To run this project, download it and run command:
@@ -20,3 +18,7 @@ To run this project, download it and run command:
 ```
 $ npm run watch
 ```
+
+## Sources
+
+All the Hero descriptions was taken from: https://www.heroesfire.com/ 

@@ -3,7 +3,7 @@
 /* Variables */
 
 $color-light: #fff;
-$color-dark: #444;
+$color-dark: #32312B;
 $color-main: #f5a111;
 $color-tag-1: #660101;
 $color-tag-2: #1186f4;
@@ -12,7 +12,6 @@ $color-tag-4: #291d5e;
 $color-tag-5: #8e11f4;
 
 
-$font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
 
@@ -33,6 +32,7 @@ body {
 
 .container {
   max-width: 1140px;
+  min-width: 350px;
   margin: 0 auto;
 
   .logo {
@@ -58,7 +58,8 @@ body {
 .wrapper {
   display: flex;
   margin-left: 10px;
-  min-height: 900px;
+  min-height: 700px;
+  padding-bottom: 20px;
 }
 
 .sidebar {
@@ -70,22 +71,35 @@ body {
 }
 
 .sidebar, .posts {
-  background: $color-light;
-  color: $color-dark;
+  background: darken($color-light, $amount: 10%);
+  color: lighten($color-dark, $amount: 10%);
   margin-right: 10px;
   padding: 40px;
   border: 3px solid $color-main;
   border-radius: 5px;
 }
 
+/* Splash */
+
+.splash {
+  background-image: url(../images/splash.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 470px;
+  margin: 10px;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
 /* Logo */
 
 .logo {
-  font-family: $font-logo;
-  font-weight: 400;
-  font-size: 104px;
-  line-height: 1;
+  font-family: $font-header;
+  font-size: 64px;
   text-align: center;
+  margin: 0;
+  padding: 180px;
+  text-shadow: 3px 3px $color-dark;
 }
 
 /* Lists */
@@ -94,6 +108,11 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  a:hover {
+    color: $color-main;
+    transition: 0.3s;
+  }
 
   .active {
     font-weight: bold;
@@ -184,10 +203,35 @@ body {
 }
 
 @media (max-width: 767px) {
+  .splash {
+    height: 120px;
+    width: 95%;
+
+    .logo {
+      font-size: 36px;
+      padding: 25px;
+    }
+  }
+
   .wrapper {
     flex-direction: column;
     text-align: center;
     min-height: 900px;
     min-width: 350px;
+    gap: 10px;
+
+    .posts {
+      min-height: 600px;
+    }
+
+    .sidebar {
+      min-height: 600px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar, .posts {
+    padding: 15px;
   }
 }
